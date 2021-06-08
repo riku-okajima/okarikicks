@@ -7,7 +7,7 @@ interface Props {
     handleDrawerToggle: () => void;
 }
 
-const useStyle = makeStyles(( theme: Theme ) => 
+const useStyles = makeStyles(( theme: Theme ) => 
     createStyles({
         appBar: {
             zIndex: theme.zIndex.drawer + 1,
@@ -26,7 +26,7 @@ const useStyle = makeStyles(( theme: Theme ) =>
 
 const ResponsiveAppBar = (props: Props) => {
     const { handleDrawerToggle } = props;
-    const classes = useStyle();
+    const classes = useStyles();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
     const isMenuOpen = Boolean(anchorEl);

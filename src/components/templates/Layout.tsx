@@ -1,4 +1,4 @@
-import { createStyles, CssBaseline, makeStyles, Theme } from "@material-ui/core";
+import { createStyles, CssBaseline, makeStyles, Theme, Toolbar } from "@material-ui/core";
 import React, { Fragment, ReactNode, useState } from "react";
 import Head from 'next/head';
 import ResponsiveAppBar from "../organisms/ResponsiveAppBar";
@@ -9,7 +9,7 @@ type Props = {
     title?: string;
 }
 
-const useStyle = makeStyles(( theme: Theme ) => 
+const useStyles = makeStyles(( theme: Theme ) => 
     createStyles({
         root: {
             display: 'flex',
@@ -22,7 +22,7 @@ const useStyle = makeStyles(( theme: Theme ) =>
 );
 
 const Layout = ({ children, title = 'This is the default title'}: Props) => {
-    const classes = useStyle();
+    const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
     const handleDrawerToggle = React.useCallback(() => setMobileOpen(!mobileOpen), []);
 
@@ -32,12 +32,16 @@ const Layout = ({ children, title = 'This is the default title'}: Props) => {
                 <title>{title}</title>
             </Head>
             <div className={classes.root} >
-            <CssBaseline />
-            <ResponsiveAppBar handleDrawerToggle={handleDrawerToggle}/>
-            <ResponsiveDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle}/>
+                <CssBaseline />
+                <ResponsiveAppBar handleDrawerToggle={handleDrawerToggle}/>
+                <ResponsiveDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle}/>
+                <main className={classes.content}>
+                    <Toolbar />
+                    {children}
+                </main>
             </div>
         </Fragment>
-    )
-}
+    );
+};
 
 export default React.memo(Layout);
