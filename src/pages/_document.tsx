@@ -4,12 +4,14 @@ import { ServerStyleSheet } from 'styled-components';
 
 import { ServerStyleSheets } from '@material-ui/core/styles';
 
+// サーバーサイド（Node.js）でのみ実行される
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const muiSheets = new ServerStyleSheets();
     const styledComponentsSheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
+    // styled-componentをサーバーサイドレンダリング
     try {
       ctx.renderPage = () =>
         originalRenderPage({
