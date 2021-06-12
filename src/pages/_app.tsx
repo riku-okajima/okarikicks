@@ -1,19 +1,12 @@
 import { CssBaseline, MuiThemeProvider, StylesProvider } from '@material-ui/core';
 import { AppProps } from 'next/app'
 import * as React from 'react'
-import { useEffect } from 'react';
 import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from 'styled-components';
 import theme from '../styles/theme';
 
+// 共通レイアウトの作成
 export default function App({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-  // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
-    if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles);
-    }
-  })
   return (
     // RecoilRoot ...ルートコンポーネントを囲む
     <RecoilRoot>

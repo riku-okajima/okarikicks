@@ -39,8 +39,10 @@ const ResponsiveAppBar = (props: Props) => {
     };
 
     const menuId = 'primary-search-account-menu';
+    // プロフィールアイコン押下時の描画
     const renderMenu = (
         <Menu
+            // anchorEl ⇒ メニュー要素が格納
             anchorEl={anchorEl}
             anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             id={menuId}
@@ -55,9 +57,10 @@ const ResponsiveAppBar = (props: Props) => {
     );
     
     return (
-        <div>
+        <>
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
+                    {/* Hidden ⇒ 縦バー（ResponsiveDrawer）と横バー（AppBar）の重複部分を隠している */}
                     <Hidden smUp implementation="css">
                         <IconButton
                             color="inherit"
@@ -93,7 +96,7 @@ const ResponsiveAppBar = (props: Props) => {
                 </Toolbar>
             </AppBar>
             {renderMenu}
-        </div>
+        </>
     )
 
 }

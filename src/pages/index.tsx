@@ -18,6 +18,7 @@ const IndexPage: React.FC = () => {
         <a>Choice</a>
       </Button>
       <p>
+        {/* Link ⇒ page間の移動、変更部だけレンダリングされるメソッド */}
         <Link href="/about">
           <a>About</a>
         </Link>
