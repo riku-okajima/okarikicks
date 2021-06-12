@@ -1,12 +1,12 @@
 import React from "react";
 import Layout from "../../components/templates/Layout"
 
-const brand = () => {
+const rare = () => {
     return (
-        <Layout title="Okarikicks | brand">
+        <Layout title="Okarikicks | rare">
 
         </Layout>
-    )
-}
+    );
+};
 
-export default React.memo(brand);
+export default React.memo(rare);
